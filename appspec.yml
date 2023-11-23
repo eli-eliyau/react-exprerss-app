@@ -1,8 +1,8 @@
 version: 0.0
 os: linux
 files:
-  - source: /server
-    destination: /home/ec2-user/express-app
+  - source: C:\fullstack\projects\react-exprerss-app
+    destination: C:\deployed_app
 hooks:
   ApplicationStop:
     - location: scripts/application_stop.sh
@@ -11,8 +11,8 @@ hooks:
   BeforeInstall:
     - location: scripts/before_install.sh
       timeout: 300
-      runas: ec2-user
-  ApplicationStart:
-    - location: scripts/application_start.sh
-      timeout: 300
-      runas: ec2-user
+      runas: Administrator
+  ApplicationStart: 
+    - location: scripts\start_app.bat
+      timeout: 300 
+      runas: Administrator
