@@ -2,7 +2,7 @@ version: 0.0
 os: windows
 files:
   - source: /
-    destination: C:\deployed_app
+    destination: /deployed_app
 hooks:
   ApplicationStop:
     - location: scripts\stop_app.bat
