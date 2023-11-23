@@ -1,7 +1,7 @@
 version: 0.0
 os: windows
 files:
-  - source: C:\source\app
+  - source: C:\fullstack\projects\react-exprerss-app
     destination: C:\deployed_app
 hooks:
   ApplicationStop:
