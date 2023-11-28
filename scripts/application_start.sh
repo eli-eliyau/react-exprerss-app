@@ -10,7 +10,7 @@ $env:Path += ";C:\Program Files\nodejs;"
 # Install node modules
 npm install
 
-cd ..\dist
+cd "src"
 
 # Start node app in background  
 Start-Process node app.js -RedirectStandardOutput .\app.out.log -RedirectStandardError .\app.err.log -WindowStyle Hidden
