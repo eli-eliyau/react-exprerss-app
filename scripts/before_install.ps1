@@ -18,3 +18,17 @@ If( !(Test-Path $DIR)) {
 } Else {
     Write-Output "${DIR} already exists"
 }
+
+# Configure PEM certificate
+$pemFile = "C:\Users\og1\OneDrive\שולחן העבודה\windows-kp.pem"
+
+# Decrypt PEM file if needed
+$securePassword = ConvertTo-SecureString -String "YOUR_PASSPHRASE" -AsPlainText -Force
+$pemContent = Get-Content $pemFile | ConvertFrom-SecureString $securePassword
+
+# Import PEM certificate  
+$pemCert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+$pemCert.Import($pemContent)
+
+# Use PEM certificate to connect
+Connect-WebSite -Uri "https://www.yoursite.com" -Certificate $pemCert
