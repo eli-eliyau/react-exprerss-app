@@ -7,7 +7,7 @@ Remove-Item install-nvm.ps1
 . $HOME\.nvm\nvm.ps1
 
 # Install Node.js
-nvm install node
+npm install node
 
 # Create our working directory if it doesn't exist
 $DIR = "C:\project"
