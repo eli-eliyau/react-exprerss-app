@@ -4,6 +4,23 @@ Invoke-WebRequest https://github.com/coreybutler/nvm-windows/releases/download/1
 Expand-Archive nvm-setup.zip -DestinationPath C:\nvm 
 C:\nvm\nvm-setup.exe /S
 
+# Configure PEM certificate
+$pemFile = "C:\Users\og1\OneDrive\שולחן העבודה\windows-kp.pem"
+
+# Decrypt PEM file if needed
+$securePassword = ConvertTo-SecureString -String "YOUR_PASSPHRASE" -AsPlainText -Force
+$pemContent = Get-Content $pemFile | ConvertFrom-SecureString $securePassword
+
+# Import PEM certificate  
+$pemCert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+$pemCert.Import($pemContent)
+
+# Use PEM certificate to connect
+Connect-WebSite -Uri "https://www.yoursite.com" -Certificate $pemCert
+
+
+
+
 # Install node 
 C:\nvm\nvm.exe install node 
 
@@ -19,16 +36,3 @@ If( !(Test-Path $DIR)) {
     Write-Output "${DIR} already exists"
 }
 
-# Configure PEM certificate
-$pemFile = "C:\Users\og1\OneDrive\שולחן העבודה\windows-kp.pem"
-
-# Decrypt PEM file if needed
-$securePassword = ConvertTo-SecureString -String "YOUR_PASSPHRASE" -AsPlainText -Force
-$pemContent = Get-Content $pemFile | ConvertFrom-SecureString $securePassword
-
-# Import PEM certificate  
-$pemCert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
-$pemCert.Import($pemContent)
-
-# Use PEM certificate to connect
-Connect-WebSite -Uri "https://www.yoursite.com" -Certificate $pemCert
