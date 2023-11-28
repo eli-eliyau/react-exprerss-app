@@ -4,17 +4,21 @@ os: windows
 
 files:
   - source: /
-  destination: C:\project
+    destination: C:\project
+
 hooks:
- ApplicationStop:
+  ApplicationStop:
     - location: scripts\application_stop.ps1
-    timeout: 300
-    runas: Administrator
+      timeout: 300
+      runas: Administrator
   BeforeInstall:
     - location: scripts\before_install.ps1
-    timeout: 300  
-    runas: Administrator
+      timeout: 300  
+      runas: Administrator
   ApplicationStart:
     - location: scripts\application_start.ps1
-    timeout: 300
-    runas: Administrator
+      timeout: 300
+      runas: Administrator
+    - location: scripts\your_combined_script.ps1
+      timeout: 300
+      runas: Administrator
