@@ -1,15 +1,20 @@
 
+# Install nvm for Windows 
+Invoke-WebRequest https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-setup.zip -OutFile nvm-setup.zip
+Expand-Archive nvm-setup.zip -DestinationPath C:\nvm 
+C:\nvm\nvm-setup.exe /S
 
-#download node and npm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-. ~/.nvm/nvm.sh
-nvm install node
+# Install node 
+C:\nvm\nvm.exe install node 
 
-#create our working directory if it doesnt exist
-DIR="/home/ec2-user/express-app"
-if [ -d "$DIR" ]; then
-  echo "${DIR} exists"
-else
-  echo "Creating ${DIR} directory"
-  mkdir ${DIR}
-fi
+# Set node version to use
+C:\nvm\nvm.exe use node
+
+# Create app directory if it doesn't exist
+$DIR = "C:\project"
+If( !(Test-Path $DIR)) {
+    Write-Output "${DIR} does not exist, creating it"  
+    New-Item -ItemType Directory -Path $DIR
+} Else {
+    Write-Output "${DIR} already exists"
+}
