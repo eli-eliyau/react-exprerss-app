@@ -1,18 +1,20 @@
 version: 0.0
-os: linux
+
+os: windows
+
 files:
   - source: /
-    destination: /home/ec2-user/express-app
+  destination: C:\project
 hooks:
   ApplicationStop:
-    - location: scripts/application_stop.sh
-      timeout: 300
-      runas: ec2-user
-  BeforeInstall:
-    - location: scripts/before_install.sh
-      timeout: 300
-      runas: ec2-user
-  ApplicationStart:
-    - location: scripts/application_start.sh
-      timeout: 300
-      runas: ec2-user
+    - location: scripts\application_stop.ps1
+    timeout: 300
+    runas: Administrator
+BeforeInstall:
+  - location: scripts\before_install.ps1
+  timeout: 300  
+  runas: Administrator
+ApplicationStart:
+  - location: scripts\application_start.ps1
+  timeout: 300
+  runas: Administrator
