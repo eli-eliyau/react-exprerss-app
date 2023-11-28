@@ -1,38 +1,19 @@
+# Download and install nvm for Windows
+Invoke-WebRequest https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.ps1 -OutFile install-nvm.ps1
+.\install-nvm.ps1
+Remove-Item install-nvm.ps1
 
-# Install nvm for Windows 
-Invoke-WebRequest https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-setup.zip -OutFile nvm-setup.zip
-Expand-Archive nvm-setup.zip -DestinationPath C:\nvm 
-C:\nvm\nvm-setup.exe /S
+# Set up nvm environment
+. $HOME\.nvm\nvm.ps1
 
-# Configure PEM certificate
-$pemFile = "C:\Users\og1\OneDrive\שולחן העבודה\windows-kp.pem"
+# Install Node.js
+nvm install node
 
-# Decrypt PEM file if needed
-$securePassword = ConvertTo-SecureString -String "RJIMF)p?6gnhE7Z%SmskHPQMC1KmByC6" -AsPlainText -Force
-$pemContent = Get-Content $pemFile | ConvertFrom-SecureString $securePassword
-
-# Import PEM certificate  
-$pemCert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
-$pemCert.Import($pemContent)
-
-# Use PEM certificate to connect
-Connect-WebSite -Uri "https://www.yoursite.com" -Certificate $pemCert
-
-
-
-
-# Install node 
-C:\nvm\nvm.exe install node 
-
-# Set node version to use
-C:\nvm\nvm.exe use node
-
-# Create app directory if it doesn't exist
+# Create our working directory if it doesn't exist
 $DIR = "C:\project"
-If( !(Test-Path $DIR)) {
-    Write-Output "${DIR} does not exist, creating it"  
+if (Test-Path $DIR -PathType Container) {
+    Write-Output "${DIR} exists"
+} else {
+    Write-Output "Creating ${DIR} directory"
     New-Item -ItemType Directory -Path $DIR
-} Else {
-    Write-Output "${DIR} already exists"
 }
-
