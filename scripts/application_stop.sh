@@ -1,5 +1,7 @@
 
 
 #Stopping existing node servers
-echo "Stopping any existing node servers"
-pkill node
+
+Write-Output "Stopping any existing node servers"
+
+Get-Process node | Stop-Process
