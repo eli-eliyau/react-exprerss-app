@@ -1,19 +1,16 @@
+# Give permissions to express-app directory  
+icacls "C:\project" /grant Administrator:F
 
+# Navigate to working directory
+cd "C:\project\server" 
 
-#give permission for everything in the express-app directory
-sudo chmod -R 777 /home/ec2-user/express-app
+# Add node and npm to path
+$env:Path += ";C:\Program Files\nodejs;"  
 
-#navigate into our working directory where we have all our github files
-cd /home/ec2-user/express-app/server
-
-#add npm and node to path
-export NVM_DIR="$HOME/.nvm"	
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # loads nvm	
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # loads nvm bash_completion (node is in path now)
-
-#install node modules
+# Install node modules
 npm install
 
-cd /dist
-#start our node app in the background
-node app.js > app.out.log 2> app.err.log < /dev/null & 
+cd ..\dist
+
+# Start node app in background  
+Start-Process node app.js -RedirectStandardOutput .\app.out.log -RedirectStandardError .\app.err.log -WindowStyle Hidden
