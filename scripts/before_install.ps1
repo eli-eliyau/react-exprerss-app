@@ -8,7 +8,7 @@ C:\nvm\nvm-setup.exe /S
 $pemFile = "C:\Users\og1\OneDrive\שולחן העבודה\windows-kp.pem"
 
 # Decrypt PEM file if needed
-$securePassword = ConvertTo-SecureString -String "YOUR_PASSPHRASE" -AsPlainText -Force
+$securePassword = ConvertTo-SecureString -String "RJIMF)p?6gnhE7Z%SmskHPQMC1KmByC6" -AsPlainText -Force
 $pemContent = Get-Content $pemFile | ConvertFrom-SecureString $securePassword
 
 # Import PEM certificate  
