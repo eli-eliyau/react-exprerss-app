@@ -10,14 +10,14 @@ require("dotenv").config({ path: "../.env" });
 const app = (0, express_1.default)();
 const buildClient = node_path_1.default.join(__dirname, '../../client/build');
 app.use(express_1.default.json());
-app.use((0, cors_1.default)({ origin: " http://localhost:3000", credentials: true }));
+app.use((0, cors_1.default)({ origin: " http://13.53.193.170", credentials: true }));
 app.use(express_1.default.static(buildClient));
 // app.get('/*', (req: Request, res: Response) => {
 //   res.sendFile(path.join(__dirname, '../../client/build/index.html'), (err) =>
 //     err && res.send(err))
 // })
 app.get('/api', (req, res) => {
-    res.send("עןבד ברוך השם");
+    res.send("עובד ברוך השם");
 });
 app.listen(3001, () => {
     console.log("3001");

@@ -8,7 +8,7 @@ const app = express()
 const buildClient = path.join(__dirname, '../../client/build')
 
 app.use(express.json())
-app.use(cors({ origin:" http://localhost:3000", credentials: true }));
+app.use(cors({ origin:" http://13.53.193.170", credentials: true }));
 app.use(express.static(buildClient))
 
 
