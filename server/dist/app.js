@@ -10,7 +10,7 @@ require("dotenv").config({ path: "../.env" });
 const app = (0, express_1.default)();
 const buildClient = node_path_1.default.join(__dirname, '../../client/build');
 app.use(express_1.default.json());
-app.use((0, cors_1.default)({ origin: [" http://localhost", "http://51.20.188.95", "http://ec2-51-20-188-95.eu-north-1.compute.amazonaws.com"], credentials: true }));
+app.use((0, cors_1.default)({ origin: "*", credentials: true }));
 app.use(express_1.default.static(buildClient));
 // app.get('/*', (req: Request, res: Response) => {
 //   res.sendFile(path.join(__dirname, '../../client/build/index.html'), (err) =>
