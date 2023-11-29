@@ -2,7 +2,7 @@
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.ps1 -OutFile C:\Windows\system32\nvm\install-nvm.ps1
 cd C:\Windows\system32\nvm
 .\install-nvm.ps1
-Remove-Item -Path  C:\Windows\system32\nvm\install-nvm.ps1
+# Remove-Item -Path  C:\Windows\system32\nvm\install-nvm.ps1
 
 
 # Set up nvm environment
