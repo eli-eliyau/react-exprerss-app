@@ -21,8 +21,8 @@
 Set-Location -Path "C:\project"
 
 # Add npm and node to the path
-# $NVM_DIR = "$env:USERPROFILE\.nvm"
-# . "$NVM_DIR\nvm.ps1"  # loads nvm
+$NVM_DIR = "$env:USERPROFILE\.nvm"
+. "$NVM_DIR\nvm.ps1"  # loads nvm
 
 cd "server"
 
