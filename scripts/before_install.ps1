@@ -1,10 +1,10 @@
 # Download and install nvm for Windows
-Invoke-WebRequest https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.ps1 -OutFile install-nvm.ps1
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.ps1 -OutFile install-nvm.ps1
 .\install-nvm.ps1
-Remove-Item install-nvm.ps1
+Remove-Item -Path install-nvm.ps1
 
 # Set up nvm environment
-. $HOME\.nvm\nvm.ps1
+"C:\Windows\system32\.nvm\nvm.ps1"
 
 # Install Node.js
 nvm install node
