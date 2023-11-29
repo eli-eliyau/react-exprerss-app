@@ -1,16 +1,16 @@
 # Download and install nvm for Windows
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.ps1 -OutFile C:\Windows\system32\nvm\install-nvm.ps1
-cd C:\Windows\system32\nvm
-.\install-nvm.ps1
+# Invoke-WebRequest -Uri https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.ps1 -OutFile C:\Windows\system32\nvm\install-nvm.ps1
+# cd C:\Windows\system32\nvm
+# .\install-nvm.ps1
 # Remove-Item -Path  C:\Windows\system32\nvm\install-nvm.ps1
 
 
 # Set up nvm environment
 # . $HOME\.nvm\nvm.ps1
-cd C:\Windows\system32\nvm\.nvm\nvm.ps1
+# cd C:\Windows\system32\nvm\.nvm\nvm.ps1
 
 # Install Node.js
-nvm install node
+# nvm install node
 
 # Create our working directory if it doesn't exist
 $DIR = "C:\project"
