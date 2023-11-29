@@ -4,14 +4,10 @@
 Set-Location -Path "C:\project"
 
 # Add npm and node to the path
-# $NVM_DIR = "$env:USERPROFILE\.nvm"
-# . "$NVM_DIR\nvm.ps1"  # loads nvm
-"C:\Windows\system32\.nvm\nvm.ps1"
+$NVM_DIR = "$env:USERPROFILE\.nvm"
+. "$NVM_DIR\nvm.ps1"  # loads nvm
 
-cd..
-cd..
-cd "project/server"
-# cd "server"
+cd "server"
 
 # Install node modules
 npm install
