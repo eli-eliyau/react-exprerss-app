@@ -6,14 +6,32 @@ import axios from "axios";
 function App() {
   const [name, setName] = useState("אין כלום");
   useEffect(() => {
-    axios.get(`http://172.31.43.240/api`, {}).then((res) => {
+    axios.get("http://172.31.43.240:3001/api", {}).then((res) => {
+      setName(res.data);
+    }).catch((err)=>{
+      console.log(err);
+      
+    })
+    axios.get("http://51.20.188.95:3001/api", {}).then((res) => {
+      setName(res.data);
+    }).catch((err)=>{
+      console.log(err);
+      
+    })
+    axios.get("http://51.20.188.95/api", {}).then((res) => {
       setName(res.data);
     }).catch((err)=>{
       console.log(err);
       
     })
     
-    axios.get("http://51.20.188.95:3001/api", {}).then((res) => {
+    axios.get("http://localhost:3001/api", {}).then((res) => {
+      setName(res.data);
+    }).catch((err)=>{
+      console.log(err);
+      
+    })
+    axios.get("http://localhost/api", {}).then((res) => {
       setName(res.data);
     }).catch((err)=>{
       console.log(err);
