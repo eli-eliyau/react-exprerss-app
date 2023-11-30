@@ -10,14 +10,14 @@ const buildClient = path.join(__dirname, '../../client/build')
 app.use(express.json())
 app.use(cors({ origin:"*", credentials: true }));
 app.use(express.static(buildClient))
+app.use("/api", (req: Request, res: Response) => {
+  res.send("עובד ברוך השם")
+})
 
 
-app.get('/*', (req: Request, res: Response) => {
+app.get('*', (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, '../../client/build/index.html'), (err) =>
     err && res.send(err))
-})
-app.get('/api', (req: Request, res: Response) => {
-  res.send("עובד ברוך השם")
 })
 
 

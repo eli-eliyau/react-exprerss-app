@@ -12,11 +12,11 @@ const buildClient = node_path_1.default.join(__dirname, '../../client/build');
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({ origin: "*", credentials: true }));
 app.use(express_1.default.static(buildClient));
-app.get('/*', (req, res) => {
-    res.sendFile(node_path_1.default.join(__dirname, '../../client/build/index.html'), (err) => err && res.send(err));
-});
-app.get('/api', (req, res) => {
+app.use("/api", (req, res) => {
     res.send("עובד ברוך השם");
+});
+app.get('*', (req, res) => {
+    res.sendFile(node_path_1.default.join(__dirname, '../../client/build/index.html'), (err) => err && res.send(err));
 });
 app.listen(3001, () => {
     console.log("3001");

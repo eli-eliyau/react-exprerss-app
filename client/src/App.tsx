@@ -14,7 +14,12 @@ function App() {
       console.log(err);
       
     })
-    
+    axios.get("http://localhost:3001/api", {}).then((res) => {
+      setName(res.data);
+    }).catch((err)=>{
+      console.log(err);
+      
+    })
     
   }, []);
 
